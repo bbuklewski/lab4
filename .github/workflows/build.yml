@@ -2,7 +2,9 @@ name: Build .NET project
 
 on:
   workflow_dispatch:
-
+  push:
+    branches:
+      - main
 env:
   DOTNET_VERSION: 10.0.x
   PROJECT_PATH: ./lab4/lab4.csproj
