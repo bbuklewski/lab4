@@ -5,6 +5,7 @@ on:
 
 env:
   DOTNET_VERSION: 10.0.x
+  PROJECT_PATH: ./lab4/lab4.csproj
 
 jobs:
   build:
@@ -19,4 +20,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: env.DOTNET_VERSION
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Restore dependencies
+        shell: bash
+        run: dotnet restore "$PROJECT_PATH"
